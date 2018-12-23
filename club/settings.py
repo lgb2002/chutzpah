@@ -21,7 +21,7 @@ SECRET_KEY = 'xz1snho&0ie=ukhkx69pt(nubm=cpo32vna_uk$@p3w1ehvs8o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.puhung.club.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.puhungclub.kr']
 # SECURITY WARNING: don't run with debug turned on in production!
 
 #TEMPLATE_DEBUG = True
