@@ -1,6 +1,21 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
 
+class ClubList(models.Model):
+	ClubName = models.CharField(max_length = 50, blank = "True")
+	ClubDescription = models.TextField(max_length = 500, blank = "True")
+	ClubManager1 = models.TextField(blank = "True")
+	ClubManager2 = models.TextField(blank = "True")
+	ClubMemberSum = models.IntegerField(blank = "True")
+	ClubMember = models.ManyToManyField(User)
+
+    #class Meta:
+    #    ordering = ['-ClubMemberSum']
+
+    #def __unicode__(self):
+    #    return u"{0}".format(self.ClubName)
 
 class Question(models.Model):
     """question

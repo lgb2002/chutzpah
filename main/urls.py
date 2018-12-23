@@ -22,6 +22,8 @@ urlpatterns = [
         template_name='about.html'
     ), name='about'),
     url(r'^summernote/', include('django_summernote.urls')),
+    url(r'^$', views.home, name='home'),
+    url(r'^join', views.join, name='join'),
    
     #url(r'^question/(?P<question_id>[0-9]+)/$', 'question',
     #	name='view_question'),
@@ -33,8 +35,3 @@ urlpatterns = [
     #    'popularity', name='comment_popularity'),
     #url(r'^post/$', 'post', name='post'),
 ]
-
-
-'''
-url(r'^$', 'qna.views.home', name='home'),
-'''

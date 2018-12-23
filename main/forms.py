@@ -25,18 +25,6 @@ class SignupForm(UserCreationForm):
             }
         ),
     )
-    '''
-    email = forms.EmailField(
-        required=True,
-        widget=forms.EmailInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': 'Email',
-                'required': 'True',
-            }
-        )
-    )
-    '''
     password1 = forms.CharField(
         label='Password',
         widget=forms.PasswordInput(
@@ -61,11 +49,10 @@ class SignupForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2",)
+        fields = ("username", "password1", "password2",)
 
     def save(self, commit=True):
         _user = super(UserCreationForm, self).save(commit=False)
-        _user.email = self.cleaned_data['email']
         _user.set_password(self.cleaned_data['password1'])
         if commit:
             _user.save()

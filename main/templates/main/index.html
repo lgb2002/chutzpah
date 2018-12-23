@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}qna blog{% endblock %}
+{% block head %}qna blog{% endblock %}
+{% block subhead %}All About Question and Answer{% endblock %}
+{% block img-bg %}{% static 'img/home-bg.jpg' %}{% endblock %}
+
+{% block content %}
+
+    {% for clublist in clublists %}
+        <div class="post-preview">
+            <a href="#">
+                <h2 class="post-title">
+                    <a href="{{ clublist.ClubName }}">{{ clublist.ClubName }}</a>
+                </h2>
+                <form name="join" action="join" method="post">
+                    {{ crsf_token }}
+                    
+                    <input type="hidden" name="username" value = "{{ username }}" />
+                    <input type="hidden" name="clubname" value = "{{ clublist.ClubName }}" />
+
+                    <input type="submit" name="submit" value="동아리 가입"/>
+                </form>
+            </a>
+            <p class="post-meta">
+                소개 : {{ clublist.ClubDescription }}<br>
+                기장 : {{ clublist.ClubManager1 }} / 부기장 : {{ clublist.ClubManager2 }}<br>
+                부원 수 : {{ clublist.ClubMemberSum }}
+            </p>
+        </div>
+    {% empty %}
+        There is yet article.
+    {% endfor %}
+    <br>
+
+{% endblock %}

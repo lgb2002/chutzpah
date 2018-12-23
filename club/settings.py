@@ -4,8 +4,13 @@ This is a qna blog.
 """
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
+#ERROR OCCUR
+APPEND_SLASH=False
+
+#TEMPLATE_DIRS = (
+#    os.path.join(BASE_DIR, 'templates'),
+#)
 
 # Quick-start development settings - unsuitable for production
 
@@ -19,8 +24,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.puhung.club.com']
 # SECURITY WARNING: don't run with debug turned on in production!
 
-TEMPLATE_DEBUG = True
-
+#TEMPLATE_DEBUG = True
 
 # Application definition
 
@@ -46,7 +50,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
+'''
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
@@ -57,6 +61,39 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     'django.core.context_processors.request',
 )
+'''
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+#TEST = 'home/gibaek/club/main/templates/main'
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'), 
+            'main/templates/main',
+            'chutzpah/templates/chutzpah',
+            #TEST,
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.tz',
+                'django.template.context_processors.static',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
+            ]#,
+            #
+            #loaders' : [
+            #    'django_jinja.loaders.AppLoader',
+            #    'django_jinja.loaders.FileSystemLoader',
+            #]
+            #
+        },
+    },
+]
 
 ROOT_URLCONF = 'club.urls'
 
@@ -90,13 +127,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOR = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, '')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
 # Login url
-LOGIN_REDIRECT_URL = '/chutzpah/index.html'
+#LOGIN_REDIRECT_URL = '/chutzpah/index.html'
 
 
 # MEDIA

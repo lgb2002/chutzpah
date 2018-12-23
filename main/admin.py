@@ -1,8 +1,12 @@
 from django.contrib import admin
-#from django_summernote.admin import SummernoteModelAdmin
-#from .models import SomeModel
+from .models import ClubList
 
 '''
+
+from django_summernote.admin import SummernoteModelAdmin
+from .models import SomeModel
+
+
 
 # Apply summernote to all TextField in model.
 class SomeModelAdmin(SummernoteModelAdmin): # instead of ModelAdmin
@@ -13,3 +17,5 @@ class SomeModelAdmin(SummernoteModelAdmin): # instead of ModelAdmin
 admin.site.register(SomeModel, SomeModelAdmin)
 
 '''
+
+admin.site.register(ClubList)
